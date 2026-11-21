@@ -1,0 +1,224 @@
+:root {
+  --bg-canvas: #f8fafc;
+  --grid-line: #e2e8f0;
+  --wire-border: #1e293b;
+  --wire-shadow: #94a3b8;
+  --header-bg: #e2e8f0;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --accent: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Consolas", "Courier New", monospace;
+  background-color: var(--bg-canvas);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--text-main);
+  padding: 1.25rem 0.75rem 3rem;
+  line-height: 1.45;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+header.page-header {
+  background: var(--card-bg);
+  border: 2px dashed var(--wire-border);
+  padding: 1.1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 4px 4px 0 var(--wire-shadow);
+}
+
+header.page-header .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.45rem;
+  border: 1.5px solid var(--wire-border);
+  background: var(--header-bg);
+  margin-bottom: 0.45rem;
+}
+
+header.page-header h1 {
+  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+
+header.page-header p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.page-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1.5px dashed var(--wire-border);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.45rem 0.75rem;
+  border: 1.5px solid var(--wire-border);
+  background: var(--bg-canvas);
+  text-align: center;
+}
+
+.nav-link.active {
+  background: var(--header-bg);
+  box-shadow: 2px 2px 0 var(--wire-border);
+}
+
+section.program-section {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--wire-border);
+  padding: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-bottom: 2px dashed var(--wire-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-title h2 {
+  font-size: 1.1rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border: 1.5px solid var(--wire-border);
+  background: var(--bg-canvas);
+  font-weight: bold;
+}
+
+.diagram-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.9rem;
+}
+
+.uml-box {
+  background: var(--card-bg);
+  border: 2px solid var(--wire-border);
+  box-shadow: 4px 4px 0 var(--wire-border);
+  width: 100%;
+}
+
+.uml-header {
+  background: var(--header-bg);
+  border-bottom: 2px solid var(--wire-border);
+  padding: 0.55rem 0.75rem;
+  text-align: center;
+}
+
+.uml-header .stereotype {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.uml-header .class-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.uml-compartment {
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1.5px dashed var(--wire-border);
+}
+
+.uml-compartment:last-child {
+  border-bottom: none;
+}
+
+.compartment-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.uml-list {
+  list-style: none;
+  font-size: 0.8rem;
+}
+
+.uml-list li {
+  padding: 0.2rem 0;
+  word-break: break-word;
+}
+
+.vis-private {
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+.vis-public {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.connector {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+}
+
+.connector-line {
+  width: 2px;
+  height: 28px;
+  border-left: 2px dashed var(--accent);
+  position: relative;
+}
+
+.connector-line::after {
+  content: "▼";
+  position: absolute;
+  left: -6px;
+  bottom: -9px;
+  font-size: 0.8rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}

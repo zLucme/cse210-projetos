@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Diagrama de classes do Programa 2 Pedido Online em CSE 210 Semana 04 abordando encapsulamento." />
+  <title>S04 - Diagrama de Classes: Pedido Online</title>
+  <link rel="stylesheet" href="estilos/desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="estilos/mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <span class="tag">Diagrama de Classes // CSE 210 - Semana 04</span>
+      <h1>Programa 2: Pedido Online</h1>
+      <p>Diagrama de classes detalhando atributos privados e métodos públicos de comportamento.</p>
+      <nav class="page-nav" aria-label="Navegação entre diagramas">
+        <a class="nav-link" href="youtube.html">Programa 1: Vídeos do YouTube</a>
+        <a class="nav-link active" href="pedidos.html" aria-current="page">Programa 2: Pedido Online</a>
+      </nav>
+    </header>
+
+    <section class="program-section">
+      <div class="section-title">
+        <h2>Estrutura de Classes</h2>
+        <span class="badge">Princípio: Encapsulamento</span>
+      </div>
+
+      <div class="diagram-flow">
+        <article class="uml-box">
+          <div class="uml-header">
+            <span class="stereotype">&lt;&lt;class&gt;&gt;</span>
+            <span class="class-name">Pedido</span>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Atributos</span>
+            <ul class="uml-list">
+              <li><span class="vis-private">-</span> _cliente : Cliente</li>
+              <li><span class="vis-private">-</span> _produtos : List&lt;Produto&gt;</li>
+            </ul>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Métodos / Comportamentos</span>
+            <ul class="uml-list">
+              <li><span class="vis-public">+</span> Pedido(cliente: Cliente)</li>
+              <li><span class="vis-public">+</span> AdicionarProduto(produto: Produto) : void</li>
+              <li><span class="vis-public">+</span> CalcularSubtotal() : double</li>
+              <li><span class="vis-public">+</span> CalcularEnvio() : double</li>
+              <li><span class="vis-public">+</span> CalcularTotal() : double</li>
+              <li><span class="vis-public">+</span> ObterEtiquetaEmbalagem() : string</li>
+              <li><span class="vis-public">+</span> ObterEtiquetaEnvio() : string</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="connector">
+          <span>1 contém 1..*</span>
+          <div class="connector-line"></div>
+          <span>Produtos</span>
+        </div>
+
+        <article class="uml-box">
+          <div class="uml-header">
+            <span class="stereotype">&lt;&lt;class&gt;&gt;</span>
+            <span class="class-name">Produto</span>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Atributos</span>
+            <ul class="uml-list">
+              <li><span class="vis-private">-</span> _nome : string</li>
+              <li><span class="vis-private">-</span> _idProduto : string</li>
+              <li><span class="vis-private">-</span> _precoUnitario : double</li>
+              <li><span class="vis-private">-</span> _quantidade : int</li>
+            </ul>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Métodos / Comportamentos</span>
+            <ul class="uml-list">
+              <li><span class="vis-public">+</span> Produto(nome: string, idProduto: string, precoUnitario: double, quantidade: int)</li>
+              <li><span class="vis-public">+</span> CalcularCustoTotal() : double</li>
+              <li><span class="vis-public">+</span> ObterResumoEtiqueta() : string</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="connector">
+          <span>1 pertence a 1</span>
+          <div class="connector-line"></div>
+          <span>Cliente</span>
+        </div>
+
+        <article class="uml-box">
+          <div class="uml-header">
+            <span class="stereotype">&lt;&lt;class&gt;&gt;</span>
+            <span class="class-name">Cliente</span>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Atributos</span>
+            <ul class="uml-list">
+              <li><span class="vis-private">-</span> _nome : string</li>
+              <li><span class="vis-private">-</span> _endereco : Endereco</li>
+            </ul>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Métodos / Comportamentos</span>
+            <ul class="uml-list">
+              <li><span class="vis-public">+</span> Cliente(nome: string, endereco: Endereco)</li>
+              <li><span class="vis-public">+</span> MoraNosEua() : bool</li>
+              <li><span class="vis-public">+</span> ObterNome() : string</li>
+              <li><span class="vis-public">+</span> ObterEnderecoCompleto() : string</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="connector">
+          <span>1 possui 1</span>
+          <div class="connector-line"></div>
+          <span>Endereço</span>
+        </div>
+
+        <article class="uml-box">
+          <div class="uml-header">
+            <span class="stereotype">&lt;&lt;class&gt;&gt;</span>
+            <span class="class-name">Endereco</span>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Atributos</span>
+            <ul class="uml-list">
+              <li><span class="vis-private">-</span> _rua : string</li>
+              <li><span class="vis-private">-</span> _cidade : string</li>
+              <li><span class="vis-private">-</span> _estado : string</li>
+              <li><span class="vis-private">-</span> _pais : string</li>
+            </ul>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Métodos / Comportamentos</span>
+            <ul class="uml-list">
+              <li><span class="vis-public">+</span> Endereco(rua: string, cidade: string, estado: string, pais: string)</li>
+              <li><span class="vis-public">+</span> EstaNosEua() : bool</li>
+              <li><span class="vis-public">+</span> ObterEnderecoFormatado() : string</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Legenda: <span class="vis-private">-</span> privado (private) | <span class="vis-public">+</span> público (public)
+    </footer>
+  </div>
+</body>
+</html>

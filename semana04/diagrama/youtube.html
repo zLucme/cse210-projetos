@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Diagrama de classes do Programa 1 Vídeos do YouTube em CSE 210 Semana 04 abordando abstração." />
+  <title>S04 - Diagrama de Classes: Vídeos do YouTube</title>
+  <link rel="stylesheet" href="estilos/desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="estilos/mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <span class="tag">Diagrama de Classes // CSE 210 - Semana 04</span>
+      <h1>Programa 1: Vídeos do YouTube</h1>
+      <p>Diagrama de classes detalhando atributos privados e métodos públicos de comportamento.</p>
+      <nav class="page-nav" aria-label="Navegação entre diagramas">
+        <a class="nav-link active" href="youtube.html" aria-current="page">Programa 1: Vídeos do YouTube</a>
+        <a class="nav-link" href="pedidos.html">Programa 2: Pedido Online</a>
+      </nav>
+    </header>
+
+    <section class="program-section">
+      <div class="section-title">
+        <h2>Estrutura de Classes</h2>
+        <span class="badge">Princípio: Abstração</span>
+      </div>
+
+      <div class="diagram-flow">
+        <article class="uml-box">
+          <div class="uml-header">
+            <span class="stereotype">&lt;&lt;class&gt;&gt;</span>
+            <span class="class-name">Video</span>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Atributos</span>
+            <ul class="uml-list">
+              <li><span class="vis-private">-</span> _titulo : string</li>
+              <li><span class="vis-private">-</span> _autor : string</li>
+              <li><span class="vis-private">-</span> _duracaoSegundos : int</li>
+              <li><span class="vis-private">-</span> _comentarios : List&lt;Comentario&gt;</li>
+            </ul>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Métodos / Comportamentos</span>
+            <ul class="uml-list">
+              <li><span class="vis-public">+</span> Video(titulo: string, autor: string, duracaoSegundos: int)</li>
+              <li><span class="vis-public">+</span> AdicionarComentario(comentario: Comentario) : void</li>
+              <li><span class="vis-public">+</span> ObterNumeroComentarios() : int</li>
+              <li><span class="vis-public">+</span> ExibirDetalhes() : void</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="connector">
+          <span>1 possui 0..*</span>
+          <div class="connector-line"></div>
+          <span>Composição</span>
+        </div>
+
+        <article class="uml-box">
+          <div class="uml-header">
+            <span class="stereotype">&lt;&lt;class&gt;&gt;</span>
+            <span class="class-name">Comentario</span>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Atributos</span>
+            <ul class="uml-list">
+              <li><span class="vis-private">-</span> _nomeAutor : string</li>
+              <li><span class="vis-private">-</span> _texto : string</li>
+            </ul>
+          </div>
+          <div class="uml-compartment">
+            <span class="compartment-label">Métodos / Comportamentos</span>
+            <ul class="uml-list">
+              <li><span class="vis-public">+</span> Comentario(nomeAutor: string, texto: string)</li>
+              <li><span class="vis-public">+</span> ObterComentarioFormatado() : string</li>
+              <li><span class="vis-public">+</span> ExibirComentario() : void</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Legenda: <span class="vis-private">-</span> privado (private) | <span class="vis-public">+</span> público (public)
+    </footer>
+  </div>
+</body>
+</html>
